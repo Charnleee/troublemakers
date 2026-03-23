@@ -1,0 +1,38 @@
+{
+  "name": "Troublemakers MMA & Fitness",
+  "short_name": "Troublemakers",
+  "description": "Cape Town's premier combat sports gym — Boxing, Kickboxing, MMA, HIIT, Kids BullyProof & Ladies BoxFit in Palmstead.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#FFD700",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Schedule",
+      "url": "/schedule.html",
+      "description": "See this week's class timetable"
+    },
+    {
+      "name": "Book Free Trial",
+      "url": "https://wa.me/27767962742?text=Hi%2C%20I%20want%20to%20book%20my%20free%20trial%20session!",
+      "description": "Book your free first session via WhatsApp"
+    },
+    {
+      "name": "Membership Plans",
+      "url": "/membership.html",
+      "description": "View our membership options and pricing"
+    }
+  ],
+  "categories": ["fitness", "sports", "health"],
+  "lang": "en-ZA",
+  "dir": "ltr"
+}

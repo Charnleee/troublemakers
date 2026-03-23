@@ -1,0 +1,91 @@
+# =============================================
+# TROUBLEMAKERS MMA — NETLIFY CONFIGURATION
+# Full security + video support + SEO
+# =============================================
+
+[build]
+  publish = "."
+
+# ============================================================
+# GLOBAL SECURITY HEADERS
+# ============================================================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(*), fullscreen=(*)"
+    X-XSS-Protection = "1; mode=block"
+    Cross-Origin-Opener-Policy = "same-origin-allow-popups"
+    Cross-Origin-Resource-Policy = "cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://connect.facebook.net https://apis.google.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://images.unsplash.com https://www.google.com https://www.facebook.com https://static.xx.fbcdn.net; media-src 'self' blob:; frame-src https://www.google.com https://maps.google.com https://www.facebook.com; connect-src 'self' https://api.emailjs.com https://*.supabase.co wss://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests;"
+
+# ============================================================
+# CACHE CONTROL
+# ============================================================
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Video files — long cache, range request support
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Accept-Ranges = "bytes"
+
+[[headers]]
+  for = "/*.webm"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Accept-Ranges = "bytes"
+
+[[headers]]
+  for = "/*.mov"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Accept-Ranges = "bytes"
+
+# ============================================================
+# REDIRECTS
+# ============================================================
+[[redirects]]
+  from   = "https://www.troublemakersmma.co.za/*"
+  to     = "https://troublemakersmma.co.za/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "http://troublemakersmma.co.za/*"
+  to     = "https://troublemakersmma.co.za/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
